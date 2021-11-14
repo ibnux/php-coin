@@ -71,11 +71,11 @@ if ($q == "info") {
 	}
 
 	$nonce = san($_POST['nonce']);
-	$version = Block::versionCode();
+	$height = san($_POST['height']);
+	$version = Block::versionCode($height);
 	$address = san($_POST['address']);
 	$elapsed = intval($_POST['elapsed']);
 	$difficulty = san($_POST['difficulty']);
-	$height = san($_POST['height']);
 	$argon = $_POST['argon'];
 	$data=json_decode($_POST['data'], true);
 

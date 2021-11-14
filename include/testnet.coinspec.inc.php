@@ -54,3 +54,5 @@ const REWARD_SCHEME = [
 const TOTAL_SUPPLY = 714990;
 const GIT_URL = "https://github.com/phpcoinn/node";
 
+//blockchain updates
+const UPDATE_1_BLOCK_ZERO_TIME = 3000;

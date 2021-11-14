@@ -393,6 +393,16 @@ class Block
 		$prev_date = $prev['date'];
 	    $elapsed = $this->date - $prev_date;
 	    _log("Current date = {$this->date} prev date = $prev_date elapsed = $elapsed", 4);
+
+	    if($elapsed <= 0) {
+	    	$height = Block::getHeight();
+	    	if($height >= UPDATE_1_BLOCK_ZERO_TIME) {
+		        _log("Block can not have 0 block time");
+		        return false;
+		    }
+	    }
+
+
         // get the current difficulty if empty
         if (empty($this->difficulty)) {
             $this->difficulty = Block::difficulty();
@@ -904,7 +914,14 @@ public_key=".$transaction['public_key'],5);
 		return true;
 	}
 
-	static function versionCode() {
-		return "010000";
+	static function versionCode($height=null) {
+		if($height == null) {
+			$height = self::getHeight();
+		}
+		if($height < UPDATE_1_BLOCK_ZERO_TIME) {
+			return "010000";
+		} else {
+			return "010001";
+		}
 	}
 }

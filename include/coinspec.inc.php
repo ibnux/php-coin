@@ -5,7 +5,7 @@ if(file_exists(dirname(__DIR__)."/testnet")) {
 }
 
 // mainnet specification
-const VERSION = "1.0.0";
+const VERSION = "1.0.1";
 const DEVELOPMENT = false;
 const XDEBUG = "";
 const XDEBUG_CLI = "";
@@ -55,3 +55,6 @@ const REWARD_SCHEME = [
 
 const TOTAL_SUPPLY = 210000000;
 const GIT_URL = "https://github.com/phpcoinn/node";
+
+//blockchain updates
+const UPDATE_1_BLOCK_ZERO_TIME = 3000;
